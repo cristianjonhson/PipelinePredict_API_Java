@@ -1,0 +1,28 @@
+@startuml
+title Arquitectura MVP - PipelinePredict IA
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam componentStyle rectangle
+
+rectangle "GitHub Actions / Jenkins / GitLab CI" as cicd
+rectangle "API Java Spring Boot\nCapa oficial de datos" as java
+
+database "PostgreSQL\nDatos históricos" as db
+rectangle "Python ML + FastAPI\nConsume SOLO API Java" as python
+rectangle "Streamlit Dashboard" as streamlit
+
+cicd --> java : datos CI/CD
+java --> db : lee/escribe
+java --> python : expone REST /api/ml/*
+python --> java : guarda predicciones vía REST
+python --> streamlit : predicciones / métricas
+streamlit --> java : dashboard / historial
+streamlit --> python : predicción en tiempo real
+
+note right of python
+Python NO se conecta directo a PostgreSQL.
+No usa psycopg2 ni SQLAlchemy contra la BD.
+end note
+
+@enduml
