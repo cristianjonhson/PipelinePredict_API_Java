@@ -9,4 +9,10 @@ services:
       SPRING_DATASOURCE_URL: ${API_DB_URL}
       SPRING_DATASOURCE_USERNAME: ${API_USER}
       SPRING_DATASOURCE_PASSWORD: ${API_PASSWORD}
+    networks:
+      - pipelinepredict-net
     restart: unless-stopped
+
+networks:
+  pipelinepredict-net:
+    external: true
