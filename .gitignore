@@ -1,0 +1,60 @@
+# =========================================================
+# PipelinePredict IA - .gitignore
+# Java + Python + Terraform + MiniStack + PostgreSQL + Docker
+# =========================================================
+
+# ---------- Sistema operativo ----------
+.DS_Store
+Thumbs.db
+
+# ---------- IDEs / Editores ----------
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# ---------- Java / Spring Boot ----------
+target/
+build/
+out/
+.gradle/
+.mvn/wrapper/maven-wrapper.jar
+
+# Logs Java
+*.log
+
+# ---------- Variables de entorno / secretos ----------
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+
+# Credenciales cloud
+.aws/
+.azure/
+credentials
+config
+
+# ---------- Docker ----------
+docker-compose.override.yml
+
+# ---------- PostgreSQL ----------
+pgdata/
+postgres-data/
+*.dump
+*.backup
+*.sql.gz
+
+# ---------- Archivos temporales ----------
+tmp/
+temp/
+.cache/
+*.tmp
+*.swp
+*.swo
